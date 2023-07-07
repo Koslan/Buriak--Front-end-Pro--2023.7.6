@@ -22,6 +22,7 @@
       <select id="task-select" class="custom-select custom-select-sm w-auto ml-3">
         <option value="hm18">hm18</option>
         <option value="hm20">hm20</option>
+        <option value="hm21">hm21</option>
       </select>
     </div>
   </header>
@@ -87,9 +88,51 @@
   </div>
 
 
+  <div id="hm21" class="tab">
+    <h3>Homework 21</h3>
+    <h4>Пишемо форму для реєстрації</h4>
+    <form id="registration-form" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label for="cities">Місто</label>
+        <select class="form-control" id="city" required>
+          <option value="">Оберіть місто</option>
+          <!-- Dynamically populate options from cities.json -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="address">Адреса</label>
+        <textarea class="form-control" id="address" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="languages">Мови, якими володіє</label>
+        <div>
+          <!-- Dynamically populate options from languages.json -->
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Зберегти</button>
+    </form>
 
-
+    <div id="registration-table" style="display: none;">
+      <h4>Таблиця з введеними даними</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Дата народження</th>
+            <th>Стать</th>
+            <th>Місто</th>
+            <th>Адреса</th>
+            <th>Мови</th>
+          </tr>
+        </thead>
+        <tbody id="registration-data">
+        </tbody>
+      </table>
+    </div>
   </div>
+
+
 
   <footer class="bg-dark text-light text-center text-lg-start mt-5">
     <div class="container p-4">

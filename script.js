@@ -164,6 +164,74 @@ window.onload = function () {
 
 
 
+// hm21
+
+fetch("cities.json")
+  .then(response => response.json())
+  .then(cities => {
+    const citySelect = document.getElementById("city");
+    cities.forEach(city => {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+  });
+
+// Load languages from languages.json
+fetch("languages.json")
+  .then(response => response.json())
+  .then(languages => {
+    const languagesContainer = document.querySelector("#hm21 .form-group:last-child");
+    languages.forEach(language => {
+      const div = document.createElement("div");
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.id = language;
+      checkbox.name = "languages";
+      checkbox.value = language;
+      const label = document.createElement("label");
+      label.htmlFor = language;
+      label.textContent = language;
+      div.appendChild(checkbox);
+      div.appendChild(label);
+      languagesContainer.appendChild(div);
+    });
+  });
+
+function submitForm(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const surname = document.getElementById("surname").value;
+  const birthday = document.getElementById("birthday").value;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const city = document.getElementById("city").value;
+  const address = document.getElementById("address").value;
+
+  const languages = [];
+  const checkboxes = document.querySelectorAll('input[name="languages"]:checked');
+  checkboxes.forEach((checkbox) => {
+    languages.push(checkbox.value);
+  });
+
+  const tableRow = document.createElement("tr");
+  tableRow.innerHTML = `
+      <td>${name}</td>
+      <td>${surname}</td>
+      <td>${birthday}</td>
+      <td>${gender}</td>
+      <td>${city}</td>
+      <td>${address}</td>
+      <td>${languages.join(", ")}</td>
+    `;
+
+  document.getElementById("registration-data").appendChild(tableRow);
+  document.getElementById("registration-form").reset();
+  document.getElementById("registration-form").style.display = "none";
+  document.getElementById("registration-table").style.display = "block";
+}
+
 
 
 // Utility functions
