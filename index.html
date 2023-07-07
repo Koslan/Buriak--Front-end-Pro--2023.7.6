@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Hillel Homeworks</title>
+</head>
+
+<body class="bg-dark text-light mx-auto">
+  <header class="d-flex justify-content-between p-3 bg-dark border-bottom border-primary mb-5">
+    <h2 class="mb-0"> Hillel Lesson9 Homework 18,20</h2>
+    <div>
+      <a id="github-link" href="" target="_blank" class="btn btn-outline-light btn-sm">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <select id="task-select" class="custom-select custom-select-sm w-auto ml-3">
+        <option value="hm18">hm18</option>
+        <option value="hm20">hm20</option>
+      </select>
+    </div>
+  </header>
+
+  <div id="tab-content">
+    <div id="hm18" class="tab">
+      <h3>Homework 18</h3>
+      <!-- Task 18 code here -->
+      <!-- Task 1 -->
+      <h5>Є текстове поле на сторінці. При фокусі на цьому полі збоку з'являється div з інформацією. При зникненні
+        фокуса - так само пропадає</h5>
+      <br>
+      <h5 id="hm18_task1_text"> Текстове поле</h5>
+      <div id="hm18_task1_infoDiv" class="alert alert-info mt-3" style="display: none;">This is an information div.
+      </div>
+
+      <!-- Task 2 -->
+      <br><br>
+      <h5>На сторінці є дві кнопки. При натисканні на першу кнопку просимо користувача ввести в prompt посилання, при
+        натисканні на другу - переадресовується на інший сайт (за раніше введеним посиланням). Реалізувати перевірку на
+        http/https. Якщо протокол не вказано - додаємо</h5>
+      <button id="hm18_task2_promptButton" class="btn btn-dark btn-sm" onclick="hm18_task2_promptForLink()">Prompt for
+        Link</button>
+      <button id="hm18_task2_redirectButton" class="btn btn-dark btn-sm"
+        onclick="hm18_task2_redirectToLink()">Redirect</button>
+
+      <!-- Task 3 -->
+      <br><br>
+      <h5>Вивести таблицю 10 × 10, заповнену числами від 1 до 100 (таблиця створюється динамічно)</h5>
+      <button id="hm18_task3_button" class="btn btn-dark btn-sm" onclick="hm18_task3_generateTable()">Generate
+        Table</button>
+      <div id="hm18_task3_tableContainer"></div>
+
+      <!-- Task 4 -->
+      <br><br>
+      <h5>У папці images є зображення. Вивести зображення з цієї папки отримане випадковим чином (Math.random)</h5>
+      <div>
+        <img id="slideshow-image" onclick="hm18_changeImage()" src="" alt="Slideshow Image" width="480" height="480">
+      </div>
+      <button id="hm18_task4_button" class="btn btn-dark btn-sm" onclick="hm18_changeImage()">Display
+        Random Image</button>
+
+      <button class="btn btn-dark btn-sm" id="start-button">Start</button>
+      <button class="btn btn-dark btn-sm" id="stop-button">Stop</button>
+      <div id="hm18_task4_imageContainer"></div>
+    </div>
+  </div>
+
+  <div id="hm20" class="tab">
+    <!-- Add your code here for hm20 -->
+    <h3>Homework 20</h3>
+    <p>Пишемо свій слайдер зображень
+      відображаємо зображення та кнопки Next, Prev з боків від зображення
+      При натисканні на Next - показуємо наступне зображення
+      При натисканні на Prev - попереднє
+      При досягненні останнього зображення – ховати кнопку Next. Аналогічно з першим зображенням та кнопкою Prev.
+    </p>
+    <div class="slider">
+      <button id="hm20_prev" class="slider-button" onclick="hm20_changeImage('prev')">Prev</button>
+      <img id="hm20_slider-img" class="slider-image" src="images/damn_js.jpg" width="480" height="480">
+      <button id="hm20_next" class="slider-button" onclick="hm20_changeImage('next')">Next</button>
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+  <footer class="bg-dark text-light text-center text-lg-start mt-5">
+    <div class="container p-4">
+      <h5 class="text">Kostintyn Buriak</h5>
+      <p>Salesforce Developer</p>
+      <p>+380934739023 | buriak.kostiantyn@gmail.com</p>
+      <a href="https://t.me/kostia_b" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/kburiak/" target="_blank"><i class="fab fa-linkedin fa-2x ml-3"></i></a>
+    </div>
+  </footer>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
