@@ -199,39 +199,55 @@ fetch("languages.json")
     });
   });
 
+// Submit form handler
 function submitForm(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const surname = document.getElementById("surname").value;
+  // Get form values
+  const firstName = document.getElementById("first-name").value;
+  const lastName = document.getElementById("last-name").value;
   const birthday = document.getElementById("birthday").value;
-  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const gender = document.querySelector("input[name='gender']:checked").value;
   const city = document.getElementById("city").value;
   const address = document.getElementById("address").value;
 
-  const languages = [];
-  const checkboxes = document.querySelectorAll('input[name="languages"]:checked');
-  checkboxes.forEach((checkbox) => {
-    languages.push(checkbox.value);
-  });
+  // Create table row with form data
+  const tableContainer = document.getElementById("table-container");
+  const table = document.createElement("table");
+  table.classList.add("table", "table-bordered");
 
-  const tableRow = document.createElement("tr");
-  tableRow.innerHTML = `
-      <td>${name}</td>
-      <td>${surname}</td>
-      <td>${birthday}</td>
-      <td>${gender}</td>
-      <td>${city}</td>
-      <td>${address}</td>
-      <td>${languages.join(", ")}</td>
-    `;
+  const row = document.createElement("tr");
+  const firstNameCell = document.createElement("td");
+  firstNameCell.textContent = firstName;
+  const lastNameCell = document.createElement("td");
+  lastNameCell.textContent = lastName;
+  const birthdayCell = document.createElement("td");
+  birthdayCell.textContent = birthday;
+  const genderCell = document.createElement("td");
+  genderCell.textContent = gender;
+  const cityCell = document.createElement("td");
+  cityCell.textContent = city;
+  const addressCell = document.createElement("td");
+  addressCell.textContent = address;
 
-  document.getElementById("registration-data").appendChild(tableRow);
-  document.getElementById("registration-form").reset();
-  document.getElementById("registration-form").style.display = "none";
-  document.getElementById("registration-table").style.display = "block";
+  row.appendChild(firstNameCell);
+  row.appendChild(lastNameCell);
+  row.appendChild(birthdayCell);
+  row.appendChild(genderCell);
+  row.appendChild(cityCell);
+  row.appendChild(addressCell);
+  table.appendChild(row);
+  tableContainer.innerHTML = "";
+  tableContainer.appendChild(table);
+
+  // Clear the form inputs
+  document.getElementById("first-name").value = "";
+  document.getElementById("last-name").value = "";
+  document.getElementById("birthday").value = "";
+  document.getElementById("gender-male").checked = true;
+  document.getElementById("city").value = "";
+  document.getElementById("address").value = "";
 }
-
 
 
 // Utility functions
