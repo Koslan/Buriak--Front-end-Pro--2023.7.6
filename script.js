@@ -182,7 +182,7 @@ fetch("cities.json")
 fetch("languages.json")
   .then(response => response.json())
   .then(languages => {
-    const languagesContainer = document.querySelector("#hm21 .form-group:last-child");
+    const languagesContainer = document.getElementById("languagesContainer");
     languages.forEach(language => {
       const div = document.createElement("div");
       const checkbox = document.createElement("input");
