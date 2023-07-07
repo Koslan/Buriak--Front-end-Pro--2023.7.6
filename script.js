@@ -25,7 +25,7 @@ const images = [
   "images/WhatsApp Image 2021-01-26 at 00.38.35.jpeg"
 ];
 
-let link;
+
 //hm 18
 
 function hm18_task1_displayInfoDiv() {
@@ -42,6 +42,7 @@ document.getElementById("hm18_task1_text").addEventListener("mouseover", hm18_ta
 document.getElementById("hm18_task1_text").addEventListener("mouseleave", hm18_task1_hideInfoDiv);
 
 // Task 2
+let link;
 function hm18_task2_promptForLink() {
   link = prompt("Please enter a link:");
   console.log("Link", link);
@@ -54,6 +55,10 @@ function hm18_task2_redirectToLink() {
 }
 
 function redirectToLink(link) {
+  // check if the link already has a protocol
+  if (!link.startsWith('http://') && !link.startsWith('https://')) {
+    link = 'http://' + link; // add http protocol if it doesn't exist
+  }
   window.location.href = link;
 }
 
