@@ -142,6 +142,8 @@ function hm20_changeImage(direction) {
 
   let currentIndex = parseInt(slider.dataset.currentIndex);
 
+  console.log(currentIndex);
+
   if (direction === 'next' && currentIndex < images.length - 1) {
     currentIndex++;
   } else if (direction === 'prev' && currentIndex > 0) {
@@ -288,4 +290,9 @@ window.onload = function () {
   const githubRepoUrl = `https://github.com/${username}/${repoName}`;
 
   document.getElementById("github-link").href = githubRepoUrl;
+
+  document.getElementById("hm20_prev").style.visibility = "hidden";
+
+  document.getElementById("hm20_slider-img").src = images[0];
+  hm20_changeImage('next');
 };
